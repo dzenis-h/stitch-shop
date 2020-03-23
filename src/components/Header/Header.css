@@ -1,0 +1,132 @@
+.main-header {
+  width: 100%;
+  height: 3.5rem;
+  background: #242424;
+}
+
+.main-header__nav {
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 1rem;
+}
+
+.main-header__nav-items {
+  height: 100%;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  display: flex;
+}
+
+.main-header__nav-item {
+  margin: 0 0.5rem;
+  height: auto;
+}
+
+.main-header__nav-item a {
+  display: block;
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+  color: white;
+}
+
+.main-header__nav-item a:hover,
+.main-header__nav-item a:active,
+.main-header__nav-item a.active {
+  background: #6200ff;
+  border-radius: 5px;
+  color: white;
+}
+
+.main-header__nav-item button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+  color: #f84d8e;
+  display: block;
+}
+
+.main-header__nav-item button:hover,
+.main-header__nav-item button:active {
+  background: #f84d8e;
+  border-radius: 5px;
+  color: white;
+}
+
+.main-header__nav-item button:focus {
+  outline: none;
+}
+
+.logout {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  padding: 0.25rem 0.5rem;
+  color: #f84d8e;
+  display: block;
+  float: right;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.logout:focus {
+  outline: none;
+}
+
+.logout:hover,
+.logout:active {
+  background: #ff4382;
+  border-color: #ff4382;
+  color: #ffffff;
+}
+
+.button--inverse {
+  background: transparent;
+  color: #ff0055;
+}
+
+.button--inverse:hover,
+.button--inverse:active {
+  color: white;
+  background: #ff0055;
+}
+
+.button--danger {
+  background: #830000;
+  border-color: #830000;
+}
+
+.button--danger:hover,
+.button--danger:active {
+  background: #f34343;
+  border-color: #f34343;
+}
+
+.button:disabled,
+.button:hover:disabled,
+.button:active:disabled {
+  background: #ccc;
+  color: #979797;
+  border-color: #ccc;
+  cursor: not-allowed;
+}
+
+.button--small {
+  font-size: 0.8rem;
+}
+
+.button--big {
+  font-size: 1.5rem;
+}
+
+ul {
+  list-style: none;
+  text-decoration: none;
+  display: inline-flex;
+}
