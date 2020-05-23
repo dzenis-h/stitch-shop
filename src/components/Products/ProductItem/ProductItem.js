@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
-import './ProductItem.css';
+import "./ProductItem.css";
 
-const productItem = props => (
+const productItem = (props) => (
   <article className="product-item">
     <div
       className="product-item__image"
@@ -14,8 +14,8 @@ const productItem = props => (
       <h2>${props.price}</h2>
       <p>{props.text}</p>
       <div className="product-item__controls">
-        <Link to={'/products/' + props.id}>Details</Link>
-        <Link to={'/products/' + props.id + '/edit'}>Edit</Link>
+        <Link to={"/products/" + props.id}>Details</Link>
+        <Link to={"/products/" + props.id + "/edit"}>Edit</Link>
         <button onClick={props.onDelete.bind(this, props.id)}>Delete</button>
       </div>
     </div>

@@ -12,6 +12,8 @@
   background-position: center;
   background-size: cover;
   margin-right: 5%;
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 .product-item__content {
@@ -61,5 +63,8 @@
   .product-item__content {
     text-align: center;
     font-size: 70%;
+  }
+  .product-item__controls {
+    bottom: 0.5rem;
   }
 }

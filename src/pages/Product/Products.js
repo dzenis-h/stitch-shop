@@ -6,7 +6,10 @@ import Products from "../../components/Products/Products";
 
 class ProductsPage extends Component {
   state = { isLoading: true, products: [] };
+  _isMounted = false;
+
   componentDidMount() {
+    this._isMounted = true;
     this.fetchData();
   }
 
@@ -27,6 +30,10 @@ class ProductsPage extends Component {
     }
   };
 
+  componentWillUnmount() {
+    this._isMounted = false;
+  }
+
   fetchData = async () => {
     const mongodb = Stitch.defaultAppClient.getServiceClient(
       RemoteMongoClient.factory,
@@ -43,9 +50,9 @@ class ProductsPage extends Component {
         product.price = product.price.toString();
         return product;
       });
-      this.setState({ isLoading: false, products });
+      if (this._isMounted) this.setState({ isLoading: false, products });
     } catch (error) {
-      this.setState({ isLoading: false });
+      if (this._isMounted) this.setState({ isLoading: false });
       this.props.onError(
         "Fetching the products failed. Please try again later"
       );
@@ -54,12 +61,13 @@ class ProductsPage extends Component {
   };
 
   render() {
+    const { isLoading, products } = this.state;
     let content = <div className="loading-video"></div>;
 
-    if (!this.state.isLoading && this.state.products.length > 0) {
+    if (!isLoading && products.length > 0) {
       content = (
         <Products
-          products={this.state.products}
+          products={products}
           onDeleteProduct={this.productDeleteHandler}
         />
       );
