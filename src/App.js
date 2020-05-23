@@ -12,6 +12,7 @@ import Backdrop from "./components/Backdrop/Backdrop";
 import ProductsPage from "./pages/Product/Products";
 import ProductPage from "./pages/Product/Product";
 import EditProductPage from "./pages/Product/EditProduct";
+import AddProductPage from "./pages/Product/AddProduct";
 import AuthPage from "./pages/Auth/Auth";
 import ConfirmAccountPage from "./pages/Auth/ConfirmAccount";
 
@@ -84,7 +85,7 @@ class App extends Component {
         <Route
           path="/product/:mode"
           render={(props) => (
-            <EditProductPage {...props} onError={this.errorHandler} />
+            <AddProductPage {...props} onError={this.errorHandler} />
           )}
         />
         <Route

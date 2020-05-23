@@ -16,37 +16,10 @@ class ProductEditPage extends Component {
   };
 
   async componentDidMount() {
-    const { mode, id } = this.props.match.params;
-    if (mode === "edit") {
-      const mongodb = Stitch.defaultAppClient.getServiceClient(
-        RemoteMongoClient.factory,
-        "mongodb-atlas"
-      );
-      try {
-        const productResponse = await mongodb
-          .db("stitch-shop")
-          .collection("products")
-          .find({ _id: new BSON.ObjectID(id) })
-          .asArray();
-        const product = productResponse[0];
-        product._id = product._id.toString();
-        product.price = product.price.toString();
-        this.setState({
-          isLoading: false,
-          title: product.name,
-          price: product.price,
-          imageUrl: product.image,
-          description: product.description,
-        });
-      } catch (error) {
-        console.log(error);
-        this.props.onError(
-          "Loading the product failed. Please try again later"
-        );
-        this.setState({ isLoading: false });
-      }
-    } else {
-      this.setState({ isLoading: false, title: "" });
+    const { mode } = this.props.match.params;
+
+    if (mode === "add") {
+      this.setState({ isLoading: false });
     }
   }
 
@@ -72,15 +45,7 @@ class ProductEditPage extends Component {
       RemoteMongoClient.factory,
       "mongodb-atlas"
     );
-    if (this.props.match.params.mode === "edit") {
-      request = mongodb
-        .db("stitch-shop")
-        .collection("products")
-        .updateOne(
-          { _id: new BSON.ObjectId(this.props.match.params.id) },
-          productData
-        );
-    } else {
+    if (this.props.match.params.mode !== "edit") {
       request = mongodb
         .db("stitch-shop")
         .collection("products")
