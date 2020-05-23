@@ -30,7 +30,7 @@ class ProductPage extends Component {
   }
 
   render() {
-    let content = <p>Is loading...</p>;
+    let content = <div className="loading-video"></div>;
 
     if (!this.state.isLoading && this.state.product) {
       content = (
@@ -40,7 +40,7 @@ class ProductPage extends Component {
           <div
             className="product-page__image"
             style={{
-              backgroundImage: "url('" + this.state.product.image + "')"
+              backgroundImage: "url('" + this.state.product.image + "')",
             }}
           />
           <p>{this.state.product.description}</p>

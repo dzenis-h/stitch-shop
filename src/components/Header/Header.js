@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 import "./Header.css";
 
-const header = props => {
+const header = (props) => {
   let links = (
     <div className="main-header__nav-items">
       <ul>
@@ -13,8 +13,6 @@ const header = props => {
         <li className="main-header__nav-item">
           <NavLink to="/product/add">Add Product</NavLink>
         </li>
-        {/* <li className="main-header__nav-item">
-      </li> */}
       </ul>
       <button onClick={props.onLogout} className="logout">
         Logout

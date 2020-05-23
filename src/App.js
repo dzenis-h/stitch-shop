@@ -3,7 +3,7 @@ import { Switch, Route, Redirect } from "react-router-dom";
 import {
   Stitch,
   UserPasswordAuthProviderClient,
-  UserPasswordCredential
+  UserPasswordCredential,
 } from "mongodb-stitch-browser-sdk";
 
 import Header from "./components/Header/Header";
@@ -22,7 +22,7 @@ class App extends Component {
     this.state = {
       isAuth: localStorage.getItem("stitchAuth") || false,
       authMode: "login",
-      error: null
+      error: null,
     };
   }
 
@@ -48,6 +48,7 @@ class App extends Component {
     }
     try {
       const result = await request;
+      console.log(result);
       localStorage.setItem("stitchAuth", result.isLoggedIn);
 
       if (result.isLoggedIn) {
@@ -61,16 +62,16 @@ class App extends Component {
   };
 
   authModeChangedHandler = () => {
-    this.setState(prevState => {
+    this.setState((prevState) => {
       return {
-        authMode: prevState.authMode === "login" ? "signup" : "login"
+        authMode: prevState.authMode === "login" ? "signup" : "login",
       };
     });
   };
 
-  errorHandler = message => {
+  errorHandler = (message) => {
     this.setState({
-      error: message
+      error: message,
     });
   };
 
@@ -82,25 +83,25 @@ class App extends Component {
         <Redirect from="/signup" to="/products" exact />
         <Route
           path="/product/:mode"
-          render={props => (
+          render={(props) => (
             <EditProductPage {...props} onError={this.errorHandler} />
           )}
         />
         <Route
           path="/products/:id/:mode"
-          render={props => (
+          render={(props) => (
             <EditProductPage {...props} onError={this.errorHandler} />
           )}
         />
         <Route
           path="/products/:id"
-          render={props => (
+          render={(props) => (
             <ProductPage {...props} onError={this.errorHandler} />
           )}
         />
         <Route
           path="/products"
-          render={props => (
+          render={(props) => (
             <ProductsPage {...props} onError={this.errorHandler} />
           )}
         />
@@ -128,20 +129,18 @@ class App extends Component {
       );
     }
 
+    const { error, isAuth } = this.state;
     return (
       <div className="App">
         <Modal
-          open={!!this.state.error}
+          open={!!error}
           title="An Error Occurred"
           onClose={() => this.errorHandler(null)}
         >
-          <p>{this.state.error}</p>
+          <p>{error}</p>
         </Modal>
-        <Backdrop show={!!this.state.error} />
-        <Header
-          authenticated={this.state.isAuth}
-          onLogout={this.logoutHandler}
-        />
+        <Backdrop show={!!error} />
+        <Header authenticated={isAuth} onLogout={this.logoutHandler} />
         {routes}
       </div>
     );

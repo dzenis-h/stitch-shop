@@ -10,7 +10,7 @@ class ProductsPage extends Component {
     this.fetchData();
   }
 
-  productDeleteHandler = async productId => {
+  productDeleteHandler = async (productId) => {
     const mongodb = Stitch.defaultAppClient.getServiceClient(
       RemoteMongoClient.factory,
       "mongodb-atlas"
@@ -38,7 +38,7 @@ class ProductsPage extends Component {
         .collection("products")
         .find()
         .asArray();
-      products.map(product => {
+      products.map((product) => {
         product._id = product._id.toString();
         product.price = product.price.toString();
         return product;
@@ -54,7 +54,7 @@ class ProductsPage extends Component {
   };
 
   render() {
-    let content = <p>Loading products...</p>;
+    let content = <div className="loading-video"></div>;
 
     if (!this.state.isLoading && this.state.products.length > 0) {
       content = (

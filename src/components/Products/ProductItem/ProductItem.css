@@ -16,6 +16,7 @@
 
 .product-item__content {
   width: 60%;
+  margin: 0.2rem;
 }
 
 .product-item__content h1 {
@@ -54,4 +55,11 @@
 .product-item__controls a:hover,
 .product-item__controls a:active {
   color: #320083;
+}
+
+@media screen and (max-width: 767px) and (orientation: portrait) {
+  .product-item__content {
+    text-align: center;
+    font-size: 70%;
+  }
 }
