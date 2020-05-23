@@ -1,4 +1,4 @@
-# Stich Shop
+# Stitch Shop 🏪
 
 > It's built for the sole purpose of getting to know the Stitch serverless platform. The UI was built with React. It's an online shop of sorts. After you register as a user the admin needs to approve you before you can log in.
 
