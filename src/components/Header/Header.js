@@ -13,6 +13,11 @@ const header = (props) => {
         <li className="main-header__nav-item">
           <NavLink to="/product/add">Add Product</NavLink>
         </li>
+        <li className="main-header__nav-item">
+          <NavLink to="/about" className="about">
+            About
+          </NavLink>
+        </li>
       </ul>
       <button onClick={props.onLogout} className="logout">
         Logout
@@ -25,6 +30,11 @@ const header = (props) => {
       <ul className="main-header__nav-items">
         <li className="main-header__nav-item">
           <NavLink to="/auth">Authenticate</NavLink>
+        </li>
+        <li className="main-header__nav-item">
+          <NavLink to="/about" className="about">
+            About
+          </NavLink>
         </li>
       </ul>
     );

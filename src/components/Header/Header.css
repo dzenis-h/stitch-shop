@@ -130,3 +130,8 @@ ul {
   text-decoration: none;
   display: inline-flex;
 }
+
+.about {
+  display: flex;
+  flex-direction: column;
+}

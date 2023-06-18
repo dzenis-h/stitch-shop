@@ -15,6 +15,7 @@ import EditProductPage from "./pages/Product/EditProduct";
 import AddProductPage from "./pages/Product/AddProduct";
 import AuthPage from "./pages/Auth/Auth";
 import ConfirmAccountPage from "./pages/Auth/ConfirmAccount";
+import About from "./pages/About/About";
 
 class App extends Component {
   constructor() {
@@ -106,6 +107,7 @@ class App extends Component {
             <ProductsPage {...props} onError={this.errorHandler} />
           )}
         />
+        <Route path="/about" component={About} />
       </Switch>
     );
 
@@ -126,6 +128,7 @@ class App extends Component {
               />
             )}
           />
+          <Route path="/about" component={About} />
         </Switch>
       );
     }
