@@ -1,8 +1,7 @@
 # Stitch Shop 🏪
 
+## About:
 > It's built for the sole purpose of getting to know the Stitch serverless platform. The UI was built with React. It's an online shop of sorts. After you register as a user the admin needs to approve you before you can log in.
-
-> If you're interested in testing the [live version](https://stitch-shop.herokuapp.com/) you can use the following (approved) credentials:
 
 **Email:** `test@test.com`
 **Password:** `123456`
