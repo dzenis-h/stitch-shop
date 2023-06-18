@@ -1,7 +1,11 @@
 {
   "name": "stitch-shop",
-  "version": "0.1.0",
-  "author": "Dzenis H.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Dzenis H.",
+    "email": "dzenis.developer@icloud.com",
+    "url": "https://dzenis.tech"
+  },
   "description": "A basic React app built for the sole purpose of getting to know the MongoDB Stitch serverless platform.",
   "private": true,
   "dependencies": {
